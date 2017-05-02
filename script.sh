@@ -15,7 +15,7 @@ pip install rpy2
 ldd /usr/lib/R/bin/exec/R
 
 # start assembling binaries
-mkdir lambda
+#mkdir lambda
 mkdir lambda/lib
 cp -r /usr/lib/R/* lambda/
 cp /usr/lib/R/lib/libR.so lambda/lib/libR.so
