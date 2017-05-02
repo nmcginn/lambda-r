@@ -1,22 +1,14 @@
 #!/bin/bash
 
-# dependencies, 1st time only
-#sudo apt install virtualenv
-
-# R dependencies for baseline
-#wget https://cran.r-project.org/src/contrib/Archive/survival/survival_2.39-4.tar.gz
-#sudo R CMD INSTALL survival_2.39-4.tar.gz
-
 # python virtualenv
 virtualenv ~/env && source ~/env/bin/activate
-pip install rpy2
+pip install rpy2 awscli
 
 # view native dependencies
 ldd /usr/lib/R/bin/exec/R
 
 # start assembling binaries
-#mkdir lambda
-mkdir lambda/lib
+mkdir -p lambda/lib
 cp -r /usr/lib/R/* lambda/
 cp /usr/lib/R/lib/libR.so lambda/lib/libR.so
 
@@ -25,8 +17,7 @@ cp /usr/lib/x86_64-linux-gnu/libgomp.so.1 lambda/lib/
 cp /usr/lib/x86_64-linux-gnu/libgfortran.so.3 lambda/lib/
 cp /usr/lib/x86_64-linux-gnu/libquadmath.so.0 lambda/lib/
 cp /lib/x86_64-linux-gnu/libm.so.6 lambda/lib/
-#cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
-# lib/libm.so.6: symbol __strtold_nan, version GLIBC_PRIVATE not defined in file libc.so.6 with link time reference
+cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
 cp /lib/x86_64-linux-gnu/libpcre.so.3 lambda/lib/
 cp /lib/x86_64-linux-gnu/libbz2.so.1.0 lambda/lib/
 cp /usr/lib/libblas.so.3 lambda/lib/
@@ -44,4 +35,4 @@ cd lambda/
 zip -r9 here_we_go_boys.zip *
 
 # after this, upload to the S3s, make sure things are proper, and deploy to lambda
-
+aws s3 cp here_we_go_boys.zip $S3_URL
