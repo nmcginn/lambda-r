@@ -8,7 +8,6 @@ pip install rpy2 awscli
 ldd /usr/lib/R/bin/exec/R
 
 # start assembling binaries
-mkdir -p lambda/lib
 cp -r /usr/lib/R/* lambda/
 cp /usr/lib/R/lib/libR.so lambda/lib/libR.so
 
@@ -20,6 +19,7 @@ cp /lib/x86_64-linux-gnu/libm.so.6 lambda/lib/
 cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
 cp /lib/x86_64-linux-gnu/libpcre.so.3 lambda/lib/
 cp /lib/x86_64-linux-gnu/libbz2.so.1.0 lambda/lib/
+cp /lib/x86_64-linux-gnu/libgcc_s.so.1 lambda/lib/
 cp /usr/lib/libblas.so.3 lambda/lib/
 cp /usr/lib/liblapack.so.3 lambda/lib/
 

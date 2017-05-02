@@ -39,10 +39,13 @@ RUN wget https://cran.r-project.org/bin/linux/ubuntu/xenial/r-base-core_3.4.0-1x
 RUN dpkg -i r-base-core_3.4.0-1xenial0_amd64.deb && rm r-base-core_3.4.0-1xenial0_amd64.deb
 
 RUN R -e 'options(repos=structure(c(CRAN="http://cran.wustl.edu/")));install.packages("survival")'
-COPY script.sh /
 
 ENV AWS_ACCESS_KEY_ID=""
 ENV AWS_SECRET_ACCESS_KEY=""
 ENV S3_URL=""
+
+RUN mkdir -p /lambda/lib
+COPY script.sh /
+COPY lambda/handler.py /lambda/
 
 CMD ["/script.sh"]
