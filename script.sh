@@ -12,7 +12,7 @@ rm /usr/lib64/R/lib/libRrefblas.so
 cp -r /usr/lib64/R/* lambda/
 cp /usr/lib64/R/lib/libR.so lambda/lib/libR.so
 
-# pontentially missing other libraries as well, make it work
+# all the binaries we need
 cp /usr/lib64/libgomp.so.1 lambda/lib/
 cp /usr/lib64/libgfortran.so.3 lambda/lib/
 cp /usr/lib64/libquadmath.so.0 lambda/lib/
