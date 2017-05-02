@@ -2,6 +2,7 @@
 
 # python virtualenv
 virtualenv ~/env && source ~/env/bin/activate
+pip install rpy2
 
 # view native dependencies
 ldd /usr/lib64/R/bin/exec/R
