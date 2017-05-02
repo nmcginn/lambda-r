@@ -22,7 +22,13 @@ cp /usr/lib/R/lib/libR.so lambda/lib/libR.so
 
 # pontentially missing other libraries as well, make it work
 cp /usr/lib/x86_64-linux-gnu/libgomp.so.1 lambda/lib/
+cp /usr/lib/x86_64-linux-gnu/libgfortran.so.3 lambda/lib/
+cp /usr/lib/x86_64-linux-gnu/libquadmath.so.0 lambda/lib/
+cp /lib/x86_64-linux-gnu/libm.so.6 lambda/lib/
+#cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
+# lib/libm.so.6: symbol __strtold_nan, version GLIBC_PRIVATE not defined in file libc.so.6 with link time reference
 cp /lib/x86_64-linux-gnu/libpcre.so.3 lambda/lib/
+cp /lib/x86_64-linux-gnu/libbz2.so.1.0 lambda/lib/
 cp /usr/lib/libblas.so.3 lambda/lib/
 cp /usr/lib/liblapack.so.3 lambda/lib/
 
