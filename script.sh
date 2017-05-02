@@ -33,4 +33,3 @@ zip -r9 here_we_go_boys.zip *
 
 # after this, upload to the S3s, make sure things are proper, and deploy to lambda
 aws s3 cp here_we_go_boys.zip $S3_URL
-echo "https://s3.amazonaws.com/lambda-r-test/zips/here_we_go_boys.zip"
