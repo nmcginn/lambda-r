@@ -7,6 +7,7 @@ virtualenv ~/env && source ~/env/bin/activate
 ldd /usr/lib64/R/bin/exec/R
 
 # start assembling binaries
+rm /usr/lib64/R/lib/libRrefblas.so
 cp -r /usr/lib64/R/* lambda/
 cp /usr/lib64/R/lib/libR.so lambda/lib/libR.so
 
@@ -14,13 +15,9 @@ cp /usr/lib64/R/lib/libR.so lambda/lib/libR.so
 cp /usr/lib64/libgomp.so.1 lambda/lib/
 cp /usr/lib64/libgfortran.so.3 lambda/lib/
 cp /usr/lib64/libquadmath.so.0 lambda/lib/
-#cp /lib/libm.so.6 lambda/lib/
-#cp /lib/libc.so.6 lambda/lib/
-#cp /lib/libpcre.so.3 lambda/lib/
-#cp /lib/libbz2.so.1.0 lambda/lib/
-#cp /lib/libgcc_s.so.1 lambda/lib/
-#cp /usr/lib64/libblas.so.3 lambda/lib/
-#cp /usr/lib64/liblapack.so.3 lambda/lib/
+cp /usr/lib64/libblas.so.3 lambda/lib/
+cp /usr/lib64/liblapack.so.3 lambda/lib/
+cp /usr/lib64/libtre.so.5 lambda/lib/
 
 # and finally the big enchilada
 cp lambda/bin/exec/R lambda/
@@ -35,3 +32,4 @@ zip -r9 here_we_go_boys.zip *
 
 # after this, upload to the S3s, make sure things are proper, and deploy to lambda
 aws s3 cp here_we_go_boys.zip $S3_URL
+echo "https://s3.amazonaws.com/lambda-r-test/zips/here_we_go_boys.zip"
