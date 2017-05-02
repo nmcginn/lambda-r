@@ -4,8 +4,8 @@
 #sudo apt install virtualenv
 
 # R dependencies for baseline
-wget https://cran.r-project.org/src/contrib/Archive/survival/survival_2.39-4.tar.gz
-sudo R CMD INSTALL survival_2.39-4.tar.gz
+#wget https://cran.r-project.org/src/contrib/Archive/survival/survival_2.39-4.tar.gz
+#sudo R CMD INSTALL survival_2.39-4.tar.gz
 
 # python virtualenv
 virtualenv ~/env && source ~/env/bin/activate
@@ -22,6 +22,7 @@ cp /usr/lib/R/lib/libR.so lambda/lib/libR.so
 
 # pontentially missing other libraries as well, make it work
 cp /usr/lib/x86_64-linux-gnu/libgomp.so.1 lambda/lib/
+cp /lib/x86_64-linux-gnu/libpcre.so.3 lambda/lib/
 cp /usr/lib/libblas.so.3 lambda/lib/
 cp /usr/lib/liblapack.so.3 lambda/lib/
 
