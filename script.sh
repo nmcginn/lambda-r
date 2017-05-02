@@ -16,10 +16,10 @@ cp /usr/lib/x86_64-linux-gnu/libgomp.so.1 lambda/lib/
 cp /usr/lib/x86_64-linux-gnu/libgfortran.so.3 lambda/lib/
 cp /usr/lib/x86_64-linux-gnu/libquadmath.so.0 lambda/lib/
 cp /lib/x86_64-linux-gnu/libm.so.6 lambda/lib/
-cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
+#cp /lib/x86_64-linux-gnu/libc.so.6 lambda/lib/
 cp /lib/x86_64-linux-gnu/libpcre.so.3 lambda/lib/
 cp /lib/x86_64-linux-gnu/libbz2.so.1.0 lambda/lib/
-cp /lib/x86_64-linux-gnu/libgcc_s.so.1 lambda/lib/
+#cp /lib/x86_64-linux-gnu/libgcc_s.so.1 lambda/lib/
 cp /usr/lib/libblas.so.3 lambda/lib/
 cp /usr/lib/liblapack.so.3 lambda/lib/
 
